@@ -94,5 +94,19 @@ namespace LoveWall
             clientSocket.Send(Encoding.UTF8.GetBytes("haha hgx12345"));
             Receive();
         }
+
+
+        private void GetButton1_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("/getMessages"));
+            Receive();
+        }
+
+        private void GetButton2_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("0"));
+            ViewText.Text = Receive();
+        }
+
     }
 }
