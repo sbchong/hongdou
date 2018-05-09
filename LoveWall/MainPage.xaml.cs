@@ -108,5 +108,16 @@ namespace LoveWall
             ViewText.Text = Receive();
         }
 
+        private void DetailButton1_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("/getDetals"));
+            Receive();
+        }
+
+        private void DetailButton2_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("7"));
+            ViewTextDetail.Text = "这里查看动态详情\n" + Receive1();
+        }
     }
 }
