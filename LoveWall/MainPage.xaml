@@ -7,7 +7,148 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource SystemControlAcrylicElementBrush }" Margin="0,0,-4,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Name="PlayerButton" 
+            Content="登录准备" 
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            Margin="0,64,0,0" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="PlayerButton_ClickAsync"/>
+        <Button 
+            Name="MenuButton" 
+            Content="连接"
+            Grid.Column="0"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="MenuButton_Click" />
+        <Button 
+            Name="LoginButton" 
+            Content="登录"
+            Grid.Column="1"
+            HorizontalAlignment="Left" 
+            Height="40" 
+            Margin="75,64,0,0" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="LoginButton_Click" />
+        <Button 
+            Name="SendButton1" 
+            Content="发送准备" 
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="SendButton1_Click" Margin="0,5,0,0" />
+        <Button 
+            Name="SendButton2" 
+            Content="发送标题" 
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Center" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="SendButton2_Click" />
+        <Button 
+            Name="SendButton3" 
+            Content="发送内容" 
+            Grid.Row="1"
+            HorizontalAlignment="Left" 
+            Height="40" 
+            Margin="75,0,0,0" 
+            VerticalAlignment="Center" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="SendButton3_Click" Grid.Column="1" />
+        <Button 
+            x:Name="GetButton1_Copy" 
+            Content="刷新动态" 
+            Grid.Row="2"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            Margin="0,10,0,0" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="GetButton1_Click" />
+        <Button 
+            x:Name="GetButton2_Copy1" 
+            Content="最新动态" 
+            Grid.Row="2"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            Margin="0,75,0,0" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="GetButton2_Click" />
+        <Button 
+            x:Name="DetailButton1_Copy2" 
+            Content="查看动态" 
+            Grid.Row="3"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Top" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="DetailButton1_Click" />
+        <Button 
+            x:Name="DetailButton2_Copy" 
+            Content="查看详细情况" 
+            Grid.Row="3"
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Center" 
+            Width="282" 
+            RenderTransformOrigin="8.65,6"  
+            Click="DetailButton2_Click" />
+        <TextBlock 
+            Name="ViewText"
+            Text="这里刷动态"
+            Grid.Row="2"
+            Grid.Column="1"
+            Height="100"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            />
+        <TextBlock 
+            Name="ViewTextDetail"
+            Text="这里查看动态详情"
+            Grid.Row="3"
+            Grid.Column="1"
+            />
+
+
+
+
 
     </Grid>
+
 </Page>
