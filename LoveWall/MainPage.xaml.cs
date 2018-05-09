@@ -95,6 +95,23 @@ namespace LoveWall
             Receive();
         }
 
+        private void SendButton1_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("/newMessage"));
+            Receive();
+        }
+
+        private void SendButton2_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("User=kaka;;Anoymous=1;;Title=lalaka"));
+            Receive();
+        }
+
+        private void SendButton3_Click(object sender, RoutedEventArgs e)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes("啦啦啦啦 "));
+            Receive();
+        }
 
         private void GetButton1_Click(object sender, RoutedEventArgs e)
         {
