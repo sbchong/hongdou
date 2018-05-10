@@ -75,7 +75,9 @@ namespace LoveWall
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            clientSocket.Connect("45.63.91.170", 20566);
+            //clientSocket.Connect("45.63.91.170", 20566);
+            clientSocket.Connect("127.0.0.1", 20567);
+
             //Receive();
             //Thread threadReceive = new Thread(Receive);
             //threadReceive.IsBackground = true;
@@ -116,13 +118,35 @@ namespace LoveWall
         private void GetButton1_Click(object sender, RoutedEventArgs e)
         {
             clientSocket.Send(Encoding.UTF8.GetBytes("/getMessages"));
-            Receive();
+            string msg=Receive1();
+            if (msg == "/sure")
+            {
+                clientSocket.Send(Encoding.UTF8.GetBytes("0"));
+                msg = Receive1();
+                string[] msglist = msg.Split();
+                for (int i = 0; i < msglist.Length ; i++)
+                {
+                    //char[] flagf = { msg[i - 1], msg[i] };
+                    //string flag = "]";
+                    //if (flag == flagf[1].ToString())
+                    if(msglist[i]=="]")
+                    {
+                        msglist[i] = "\n";
+                        //flag = "\n";
+                        //flagf = flag.ToCharArray();
+                        //flagf = (char)92;
+                    }
+                    
+                }
+                //msg = msglist.Join();
+                ViewText.Text = msglist.ToString();
+            }
         }
 
         private void GetButton2_Click(object sender, RoutedEventArgs e)
         {
             clientSocket.Send(Encoding.UTF8.GetBytes("0"));
-            ViewText.Text = Receive();
+            ViewText.Text = Receive1();
         }
 
         private void DetailButton1_Click(object sender, RoutedEventArgs e)
@@ -133,7 +157,7 @@ namespace LoveWall
 
         private void DetailButton2_Click(object sender, RoutedEventArgs e)
         {
-            clientSocket.Send(Encoding.UTF8.GetBytes("7"));
+            clientSocket.Send(Encoding.UTF8.GetBytes("2"));
             ViewTextDetail.Text = "这里查看动态详情\n" + Receive1();
         }
     }

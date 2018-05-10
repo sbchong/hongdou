@@ -134,7 +134,7 @@
             Text="这里刷动态"
             Grid.Row="2"
             Grid.Column="1"
-            Height="100"
+            Height="200"
             TextAlignment="Center"
             TextWrapping="Wrap"
             />
@@ -143,6 +143,8 @@
             Text="这里查看动态详情"
             Grid.Row="3"
             Grid.Column="1"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
             />
 
 
