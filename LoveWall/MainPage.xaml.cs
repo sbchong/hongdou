@@ -30,6 +30,7 @@ namespace LoveWall
         HongDou hongdou = new HongDou();
         private Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         string msgrec = "";
+        bool userlogin;
 
         public MainPage()
         {
@@ -75,8 +76,8 @@ namespace LoveWall
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            //clientSocket.Connect("45.63.91.170", 20566);
-            clientSocket.Connect("127.0.0.1", 20567);
+            clientSocket.Connect("45.63.91.170", 20566);
+            //clientSocket.Connect("127.0.0.1", 20567);
 
             //Receive();
             //Thread threadReceive = new Thread(Receive);
@@ -93,8 +94,30 @@ namespace LoveWall
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            clientSocket.Send(Encoding.UTF8.GetBytes("haha hgx12345"));
-            Receive();
+            //clientSocket.Send(Encoding.UTF8.GetBytes("arnold2 hgx12345"));
+            //Receive();
+            string username = Username.Text.Trim();
+            int length = username.Length;
+            string password = Password.Text.Trim();
+            string newlogin = username + password;
+            newlogin = newlogin.Insert(length, " ");
+            clientSocket.Send(Encoding.UTF8.GetBytes(newlogin));
+            string msg = Receive();
+            if (msg == "/Successed\n")
+            {
+
+            }
+            else
+            {
+                if (msg == "/WrongPassword\n")
+                {
+                    Loginmsg.Text = "密码错误，请检查后重试";
+                }
+                else if (msg == "/NoUsername\n")
+                {
+                    Loginmsg.Text = "用户名不存在";
+                }
+            }                      
         }
 
         private void SendButton1_Click(object sender, RoutedEventArgs e)

@@ -147,28 +147,36 @@
             TextAlignment="Center"
             TextWrapping="Wrap"
             />
+        <TextBlock 
+            Name="Loginmsg"
+            Text="lalala"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="77,10,0,85"
+            />
         <TextBox
             Name="Username"
             Grid.Row="0"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             Width="200"
-            Height="40" 
+            Height="30" 
             Grid.Column="1" 
             HorizontalAlignment="Left" 
-            Margin="314,-30,0,0" 
+            Margin="374,-30,0,0" 
             VerticalAlignment="Center"           
             />
         <TextBox
             Name="Password"
             Grid.Row="0"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             Width="200"
-            Height="40" 
+            Height="30" 
             Grid.Column="1" 
             HorizontalAlignment="Left" 
-            Margin="314,80,0,0" 
+            Margin="374,80,0,0" 
             VerticalAlignment="Center"           
             />
+       
 
     </Grid>
 
