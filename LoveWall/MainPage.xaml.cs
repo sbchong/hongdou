@@ -118,7 +118,8 @@ namespace LoveWall
         private void GetButton1_Click(object sender, RoutedEventArgs e)
         {
             clientSocket.Send(Encoding.UTF8.GetBytes("/getMessages"));
-            string msg=Receive1();
+            string msg = Receive1();
+            /**********************************
             if (msg == "/sure")
             {
                 clientSocket.Send(Encoding.UTF8.GetBytes("0"));
@@ -139,9 +140,13 @@ namespace LoveWall
                     
                 }
                 //msg = msglist.Join();
+                
                 ViewText.Text = msglist.ToString();
-            }
+                ***********************************************/
+            ViewText.Text = msg;
+        
         }
+    
 
         private void GetButton2_Click(object sender, RoutedEventArgs e)
         {
