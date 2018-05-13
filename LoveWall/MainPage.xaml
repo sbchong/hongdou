@@ -21,7 +21,7 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-
+        
         <Button 
             Name="PlayerButton" 
             Content="登录准备" 
@@ -151,8 +151,9 @@
             Name="Loginmsg"
             Text="lalala"
             Grid.Row="0"
-            Grid.Column="1"
-            Margin="77,10,0,85"
+            Grid.Column="2"
+            Margin="217,50,0,25"
+            
             />
         <TextBox
             Name="Username"
