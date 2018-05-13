@@ -14,7 +14,7 @@
             <TextBlock
                 Name="ViewText"
                 Text="kakakakakakaka"
-                Width="1200"
+                Width="1000"
                 />
         </StackPanel>
         <StackPanel>
@@ -22,7 +22,7 @@
                 Name="SendButton"
                 Content="我要留言"
                 Click="SendButton_Click"
-                Margin="100,20,0,0"
+                Margin="200,20,0,0"
                 />
         </StackPanel>
     </StackPanel>

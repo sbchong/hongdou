@@ -20,24 +20,16 @@ namespace HongDou
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class LoginPage : Page
     {
-        public HomePage()
+        public LoginPage()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            string  msgrec = (string)e.Parameter;
-            ViewText.Text = msgrec;
-            //base.OnNavigatedFrom(e);
-        }
-    
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SendPage));
         }
     }
 }

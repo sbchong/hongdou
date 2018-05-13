@@ -43,6 +43,7 @@ namespace LoveWall
                     clientSocket.Send(Encoding.UTF8.GetBytes("0"));
                     msgrec = Receive1();
                 }
+
                 MyFrame.Navigate(typeof(HomePage),msgrec);
             }
             catch
@@ -89,7 +90,7 @@ namespace LoveWall
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Navigate(typeof(UserPage));
+            MyFrame.Navigate(typeof(LoginPage));
         }
     }
 }
