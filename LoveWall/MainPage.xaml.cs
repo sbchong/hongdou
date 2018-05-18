@@ -32,7 +32,10 @@ namespace LoveWall
         string msgrec = "";
         public MainPage()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
+            MyFrame.Navigate(typeof(HomePage));
+           // BackButton.Width = 0;
+            /**************************************************************
             try
             {
                 clientSocket.Connect("45.63.91.170", 20566);
@@ -50,29 +53,10 @@ namespace LoveWall
             {
 
             }
+            ************************************************************/
         }
 
-        public string Receive()
-        {
-            byte[] msg = new byte[20 * 20];
-            int msgLen = clientSocket.Receive(msg);
-            msgrec = Encoding.UTF8.GetString(msg, 0, msgLen);
-            //Receive();
-            //await Receive();
-            return msgrec;
-        }
-
-        public string Receive1()
-        {
-
-            byte[] msg = new byte[20 * 20];
-            int msgLen = clientSocket.Receive(msg);
-            // msgrec = Encoding.Unicode.GetString(msg, 0, msgLen);
-            msgrec = Encoding.UTF8.GetString(msg, 0, msgLen);
-            msgrec = Regex.Unescape(msgrec);
-
-            return msgrec;
-        }
+        
 
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -91,6 +75,39 @@ namespace LoveWall
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             MyFrame.Navigate(typeof(LoginPage));
+        }
+
+        private void MyMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void MyListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HomeListBoxItems.IsSelected)
+            {
+                MyFrame.Navigate(typeof(HomePage));
+                //if (MyFrame.Navigate(typeof(HomePage)))
+                //{
+                //    BackButton.Width = 0;
+                //}
+               // else
+               // {
+                 //   BackButton.Width = 50;
+               // }
+            }
+            if (UserListBoxItems.IsSelected)
+            {
+                MyFrame.Navigate(typeof(LoginPage));
+                //if (MyFrame.Navigate(typeof(HomePage)))
+                //{
+                //    BackButton.Width = 0;
+               // }
+              //  else
+                //{
+                 //   BackButton.Width = 50;
+               // }
+            }
         }
     }
 }

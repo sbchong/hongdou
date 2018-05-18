@@ -9,12 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
-        
+
         <StackPanel>
             <TextBlock
                 Name="ViewText"
                 Text="kakakakakakaka"
-                Width="1000"
+                
+                TextWrapping="Wrap"
                 />
         </StackPanel>
         <StackPanel>

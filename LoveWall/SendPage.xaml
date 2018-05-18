@@ -11,30 +11,38 @@
     <StackPanel>
         <TextBox 
             Grid.Row="1"
-            Grid.Column="1"  
-            Margin="0,10,0,0"
+            Grid.Column="1"
             MaxWidth="1000"
             MinWidth="500"
             Height="50"
+            HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"
             />
         <CheckBox
             Content="匿名"
-            Margin="200,20,0,0"
+            Margin="60,20,0,0"
+            HorizontalAlignment="Center"
             />
         <TextBox 
             Grid.Row="1"
-            Grid.Column="1"  
-            Margin="0,30,0,0"
+            Grid.Column="1"
             MaxWidth="1000"
             MinWidth="500"
             Height="200"
+            HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"
             />
-        <Button 
+        <HyperlinkButton 
             Grid.Row="2"
             Grid.Column="1"
             Name="SendButton"
             Content="发送留言" 
-            Margin="200,30,0,100"
+            Margin="0,30,0,100"
+            Click="SendButton_Click"
+            HorizontalAlignment="Center"
+            />
+        <TextBlock 
+            x:Name="MessegaText"
+            Text="提示消息"
+            HorizontalAlignment="Center" Margin="0,-50,0,0" VerticalAlignment="Center"
             />
     </StackPanel>
 </Page>

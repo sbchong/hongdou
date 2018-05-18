@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LoveWall;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -22,14 +23,36 @@ namespace HongDou
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        HongDouClass hongdou = new HongDouClass();
+
         public LoginPage()
         {
             this.InitializeComponent();
+            if (hongdou.Connect())
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
+            string username = Username.Text;
+            string password = Password.Password;
+            //string logininfo = hongdou.Login();
+            if (hongdou.Login(username,password) == "登录成功")
+            {
+                App.Loginstatus = true;
+                Frame.Navigate(typeof(UserPage));
+            }
+            else
+            {
 
+            }
+            
         }
     }
 }

@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LoveWall;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -22,9 +23,25 @@ namespace HongDou
     /// </summary>
     public sealed partial class SendPage : Page
     {
+        HongDouClass hongdou = new HongDouClass();
+
         public SendPage()
         {
             this.InitializeComponent();
+            hongdou.Connect();
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.Loginstatus)
+            {
+
+            }
+            else
+            {
+                MessegaText.Text = "你还没有登录，请登录后再进行操作";
+            }
+
         }
     }
 }
