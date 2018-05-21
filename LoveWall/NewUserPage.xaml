@@ -31,7 +31,7 @@
             <TextBlock 
                 Grid.Column="1"
                 Name="NewUsermsg"
-                Text="lalalsssssa"
+                Text=""
                 Grid.Row="5"                
                 HorizontalAlignment="Center"
                 Margin="0,60,0,0"            
