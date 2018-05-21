@@ -28,17 +28,24 @@ namespace HongDou
         public LoginPage()
         {
             this.InitializeComponent();
-            if (hongdou.Connect())
-            {
+            //if (!App.Loginstatus)
+            //{
+                if (hongdou.Connect())
+                {
 
-            }
-            else
-            {
+                }
+                else
+                {
 
-            }
+                }
+            //}
+           // else
+           // {
+           //     Frame.Navigate(typeof(UserPage));
+            //}
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
             string password = Password.Password;
@@ -46,13 +53,19 @@ namespace HongDou
             if (hongdou.Login(username,password) == "登录成功")
             {
                 App.Loginstatus = true;
+                App.staUsername = username;
                 Frame.Navigate(typeof(UserPage));
             }
             else
             {
-
+                Loginmsg.Text = "登录失败，请检查用户名和密码";
             }
             
+        }
+
+        private void NewUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NewUserPage));
         }
     }
 }

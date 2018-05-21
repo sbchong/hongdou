@@ -7,58 +7,72 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Opacity="0.95" RequestedTheme="Default">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-       
-        <RelativePanel >
+
+        <RelativePanel Background="{StaticResource SystemControlBackgroundListLowRevealBorderBrush}">
             <Button Name="MyMenuButton" 
                     FontFamily="Segoe MDL2 Assets"
                     Content="&#xE700;"
-                    FontSize="36"
-                    Margin="0,0,200,0"
+                    FontSize="30"
+                    Margin="0,0,20,0"
                     Click="MyMenuButton_Click" />
             <Button Name="BackButton" 
                     FontFamily="Segoe MDL2 Assets"
                     Content="&#xE012;"
-                    FontSize="36"
+                    FontSize="30"
                     Click="BackButton_Click" 
-                    Margin="80,0,20,0" />
+                    Margin="50,0,20,0" />
+            <TextBlock Name="PageLabel"
+                       Margin="200,0,0,0"/>
         </RelativePanel>
-        <SplitView Name="MySplitView"
+        <SplitView Name="MySplitView" 
                    Grid.Row="1"
                    DisplayMode="CompactOverlay"
                    OpenPaneLength="260"
-                   CompactPaneLength="56"
+                   CompactPaneLength="50"
                    HorizontalAlignment="Left" >
             <SplitView.Pane>
-                <ListBox Name="MyListBox"
+                <ListBox Name="MyListBox" Background="{StaticResource SystemControlBackgroundListLowRevealBorderBrush}" 
                      SelectionMode="Single"
-                     SelectionChanged="MyListBox_SelectionChanged">
+                     SelectionChanged="MyListBox_SelectionChanged" RequestedTheme="Light" Opacity="0.95">
                     <ListBoxItem Name="HomeListBoxItems">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets"
-                                   FontSize="34"
+                                   FontSize="28"
+                                   Margin="0,0,0,0"
                                    Text="&#xE10F;" />
                             <TextBlock Text="主页"
-                                       FontSize="28"
-                                       Margin="30,0,0,0"
+                                       FontSize="18"
+                                       Margin="150,0,0,0"
                                        />
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="UserListBoxItems">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets"
-                                   FontSize="34"
+                                   FontSize="28"
+                                   Margin="0,0,0,0"
                                    Text="&#xE77B;" />
                             <TextBlock Text="用户"
-                                       FontSize="28" 
-                                       Margin="30,0,0,0" />
+                                       FontSize="18" 
+                                       Margin="150,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
-
+                    <ListBoxItem Name="SendListBoxItems">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets"
+                                   FontSize="28"
+                                   Margin="0,0,0,0"
+                                   Text="&#xE724;" />
+                            <TextBlock Text="留言"
+                                       FontSize="18" 
+                                       Margin="150,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <Frame Name="MyFrame" >

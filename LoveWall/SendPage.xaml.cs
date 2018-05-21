@@ -29,13 +29,39 @@ namespace HongDou
         {
             this.InitializeComponent();
             hongdou.Connect();
+            
+        }
+
+        public string Checked()
+        {
+            string checkedStatus;
+            if ((bool) AnoymousCheck.IsChecked)
+            {
+                checkedStatus = ";;Anoymous=1;;";
+            }
+            else
+            {
+                checkedStatus = ";;Anoymous=0;;";
+            }
+
+            return checkedStatus; 
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
             if (App.Loginstatus)
             {
-
+                hongdou.Send("/newMessage");
+                hongdou.Receive();
+                string msg = "";
+                string username = "User=" + App.staUsername;
+                string anoymous = Checked();
+                string title = "Title=" + TitleText.Text.Trim();
+                msg = username + anoymous + title;
+                hongdou.Send(msg);
+                hongdou.Receive();
+                msg = MessageText.Text.Trim();
+                hongdou.Send(msg);
             }
             else
             {

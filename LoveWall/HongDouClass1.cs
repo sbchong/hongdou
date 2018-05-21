@@ -63,6 +63,11 @@ namespace HongDou
             }
         }
 
+        public void Send(string msg)
+        {
+            clientSocket.Send(Encoding.UTF8.GetBytes(msg));
+        }
+
         public string ReceiveMessages()
         {
             clientSocket.Send(Encoding.UTF8.GetBytes("/getMessages"));

@@ -109,6 +109,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewUserPage.xaml.cs">
+      <DependentUpon>NewUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendPage.xaml.cs">
       <DependentUpon>SendPage.xaml</DependentUpon>
@@ -124,8 +127,28 @@
     <None Include="LoveWall_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\.scale-100.png" />
+    <Content Include="Assets\.scale-125.png" />
+    <Content Include="Assets\.scale-150.png" />
+    <Content Include="Assets\.scale-200.png" />
+    <Content Include="Assets\.scale-400.png" />
+    <Content Include="Assets\100100.scale-100.png" />
+    <Content Include="Assets\100100.scale-125.png" />
+    <Content Include="Assets\100100.scale-150.png" />
+    <Content Include="Assets\100100.scale-200.png" />
+    <Content Include="Assets\100100.scale-400.png" />
+    <Content Include="Assets\200200.png" />
+    <Content Include="Assets\5050.png" />
     <Content Include="Assets\NewUser1.png" />
     <Content Include="Assets\NewUser.png" />
+    <Content Include="Assets\Rtr.png" />
+    <Content Include="Assets\girl.png" />
+    <Content Include="Assets\boy.png" />
+    <Content Include="Assets\Anoymous.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -155,6 +178,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SendPage.xaml">
       <SubType>Designer</SubType>

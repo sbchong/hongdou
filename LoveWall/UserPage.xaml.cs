@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LoveWall;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -25,6 +26,8 @@ namespace HongDou
         public UserPage()
         {
             this.InitializeComponent();
+            Username.Text = App.staUsername;
+            UserDetailtext.Text = "你还什么都没有写呢";
         }
     }
 }

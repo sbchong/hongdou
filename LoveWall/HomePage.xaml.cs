@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LoveWall;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -34,7 +39,8 @@ namespace HongDou
         {
             this.InitializeComponent();
             hongdou.Connect();
-            ViewText.Text= hongdou.ReceiveMessages();
+            //ViewText.Text= 
+            
             /*************************************************
             try
             {
@@ -58,11 +64,68 @@ namespace HongDou
 
         }
 
+
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+            msgrec = hongdou.ReceiveMessages();
+            string[] msg = msgrec.Split('[');
+            msgrec = "";
+            for (int i = 0; i < msg.Length; i++)
+            {
+                if (msg[i] != "")
+                {
+                    Image img = new Image();
+                    //img.Source = new Uri(img.BaseUri, "Assets\anoymous.png");
+                    //MasterListView.Items.Add(img + msg[i]);
+                    MasterListView.Items.Add( msg[i]);
+                }
+            }
+
+            //foreach (string str in msg)
+            //{
+            //msgrec = msgrec + str;
+
+            //}            
+            //msg = msgrec.Split(']');
+
+            
+            /********
+            var items = MasterListView.ItemsSource ;
+
+            if (items == null)
+            {
+                items = msg;
+
+                //foreach (var item in ItemsDataSource.GetAllItems())
+                //{
+                for (int i = 1; i <= msg.Length; i++)
+                {
+                 //   items.Add(msg[i]);
+                }
+                //}
+
+                MasterListView.ItemsSource = items;
+            }
+
+            //if (e.Parameter != null)
+            //{
+                // Parameter is item ID
+             //   var id = (int)e.Parameter;
+             //   _lastSelectedItem =
+             //       items.Where((item) => item.ItemId == id).FirstOrDefault();
+            //}
+
+            //UpdateForVisualState(AdaptiveStates.CurrentState);
+
+            // Don't play a content transition for first item load.
+            // Sometimes, this content will be animated as part of the page transition.
+            //DisableContentTransitions();
             //string  msgrec = (string)e.Parameter;
             //ViewText.Text = msgrec;
             //base.OnNavigatedFrom(e);
+            ***************/
         }
     
 
@@ -70,6 +133,19 @@ namespace HongDou
         {
            
             Frame.Navigate(typeof(SendPage));
+        }
+
+        private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //int i = MasterListView.SelectedIndex;
+            string msg = (string)e.ClickedItem;
+            string[] msgindex = msg.Split(',');
+            //for(int i = 0; i < 3; i++)
+            //{
+            App.getUsername = msgindex[1];
+            App.DetailtextIndex = msgindex[0];
+            //}
+            Frame.Navigate(typeof(DetailPage));
         }
     }
 }

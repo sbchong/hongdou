@@ -8,8 +8,52 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock
-            Text="ssssss"/>
-    </Grid>
+    <StackPanel>
+        <Grid HorizontalAlignment="Center" Height="725" VerticalAlignment="Center" Width="1162">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Ellipse Grid.Row="0" 
+                     Grid.Column="1"
+                     Width="50" 
+                     Height="50" 
+                     Margin="10,10,10,0"
+                     HorizontalAlignment="Left">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="assets\Anoymous.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Name="Username" 
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="1"
+                       Margin="90,30,0,0"
+                       />
+            <TextBlock Name="Detailtext" 
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Grid.RowSpan="1"                      
+                       FontSize="18"
+                       Margin="40,20,40,0"
+                       TextWrapping="wrap"
+                       />
+            <HyperlinkButton Name="LikedButton"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             FontFamily="Segoe MDL2 Assets"
+                             FontSize="30"
+                             Margin="40,0,0,0"
+                             Content="&#xE209;"                            
+                             VerticalAlignment="Top"                           
+                             />
+        </Grid>
+    </StackPanel>
 </Page>

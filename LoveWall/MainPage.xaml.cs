@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Text.RegularExpressions;
 using HongDou;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -34,29 +36,37 @@ namespace LoveWall
         {
             this.InitializeComponent();
             MyFrame.Navigate(typeof(HomePage));
-           // BackButton.Width = 0;
-            /**************************************************************
-            try
-            {
-                clientSocket.Connect("45.63.91.170", 20566);
-                clientSocket.Send(Encoding.UTF8.GetBytes("/getMessages"));
-                msgrec = Receive1();
-                if (msgrec == "/sure\n")
-                {
-                    clientSocket.Send(Encoding.UTF8.GetBytes("0"));
-                    msgrec = Receive1();
-                }
-
-                MyFrame.Navigate(typeof(HomePage),msgrec);
-            }
-            catch
-            {
-
-            }
-            ************************************************************/
+            BackButton.Visibility = Visibility.Collapsed;            
         }
 
-        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var view = ApplicationView.GetForCurrentView();
+
+            // active  
+            //view.TitleBar.BackgroundColor = Color.FromArgb(255, 8, 87, 180);
+            view.TitleBar.BackgroundColor = Colors.LightBlue;
+            view.TitleBar.ForegroundColor = Colors.Black;
+
+            // inactive  
+            //view.TitleBar.InactiveBackgroundColor = Color.FromArgb(255, 8, 87, 180);
+            
+            view.TitleBar.InactiveForegroundColor = Colors.Black;
+
+            // button  
+            //view.TitleBar.ButtonBackgroundColor = Color.FromArgb(255, 8, 87, 180);
+            view.TitleBar.ButtonForegroundColor = Colors.Black;
+
+            view.TitleBar.ButtonHoverBackgroundColor = Colors.LightBlue;
+            view.TitleBar.ButtonHoverForegroundColor = Colors.White;
+
+            view.TitleBar.ButtonPressedBackgroundColor = Colors.LightBlue;
+            view.TitleBar.ButtonPressedForegroundColor = Colors.White;
+
+            view.TitleBar.ButtonInactiveBackgroundColor = Colors.DarkGray;
+            view.TitleBar.ButtonInactiveForegroundColor = Colors.Gray;
+        }
 
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -87,26 +97,42 @@ namespace LoveWall
             if (HomeListBoxItems.IsSelected)
             {
                 MyFrame.Navigate(typeof(HomePage));
+                BackButton.Visibility = Visibility.Collapsed;
                 //if (MyFrame.Navigate(typeof(HomePage)))
                 //{
                 //    BackButton.Width = 0;
                 //}
-               // else
-               // {
-                 //   BackButton.Width = 50;
-               // }
+                // else
+                // {
+                //   BackButton.Width = 50;
+                // }
             }
             if (UserListBoxItems.IsSelected)
             {
-                MyFrame.Navigate(typeof(LoginPage));
-                //if (MyFrame.Navigate(typeof(HomePage)))
-                //{
-                //    BackButton.Width = 0;
-               // }
-              //  else
-                //{
-                 //   BackButton.Width = 50;
-               // }
+                if (!App.Loginstatus)
+                {
+                    MyFrame.Navigate(typeof(LoginPage));
+                    BackButton.Visibility = Visibility.Visible;
+                    //if (MyFrame.Navigate(typeof(HomePage)))
+                    //{
+                    //    BackButton.Width = 0;
+                    // }
+                    //  else
+                    //{
+                    //   BackButton.Width = 50;
+                    // }
+                }
+
+                else
+                {
+                    MyFrame.Navigate(typeof(UserPage));
+                    BackButton.Visibility = Visibility.Visible;
+                }
+            }
+            if (SendListBoxItems.IsSelected)
+            {
+                MyFrame.Navigate(typeof(SendPage));
+                BackButton.Visibility = Visibility.Visible;
             }
         }
     }
